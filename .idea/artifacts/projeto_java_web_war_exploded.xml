@@ -13,6 +13,9 @@
         <element id="directory" name="classes">
           <element id="module-output" name="projeto-java-web" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.jetbrains:annotations:23.0.0" />
+        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/projeto-java-web-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />

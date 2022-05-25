@@ -3,20 +3,24 @@
 <meta charset="UTF-8">
 
     <body>
-        <h2>Cadastro Usuário</h2>
-        <form method="post" action="/CadastroUsuario">
-            <label for="fname">First name:</label>
-            <input type="text" id="fname" name="fname"><br><br>
-            <label>Last name:</label>
-            <input type="text" name="sobrenome"><br><br>
-            <input style="margin-right: 7rem;" type="submit" name="Enviar">
-            <input type="reset" value="Limpar">
+        <h1>Cadastro Usuário</h1>
+        <form method="post" action="CadastroUsuario">
+            <label for="nome">Nome</label>
+            <input placeholder="Digite seu nome" type="text" id="nome" name="nome" size="90"><br><br>
+
+            <label for="login">Login</label>
+            <input placeholder="Login" type="email" id="login" name="login" size="40"><br><br>
+
+            <label for="senha">Senha</label>
+            <input placeholder="senha" type="password" id="senha" name="senha" size="40"><br><br>
+
+            <label for="confirmeSenha">Confirme a senha</label>
+            <input type="password" id="confirmeSenha" name="confirmeSenha" size="40"><br><br>
+
+            <p>
+                <input style="margin-right: 7rem;" type="submit" name="Enviar">
+                <input type="reset" value="Limpar">
+            </p>
         </form>
-
-        <style>
-            .mb-2 {
-
-            }
-        </style>
     </body>
 </html>
