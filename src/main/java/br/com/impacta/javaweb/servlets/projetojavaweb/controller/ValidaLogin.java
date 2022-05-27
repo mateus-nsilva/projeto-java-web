@@ -7,6 +7,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Objects;
 
 @WebServlet(name = "ValidaLogin", value = "/ValidaLogin")
 public class ValidaLogin extends HttpServlet {
@@ -24,10 +25,10 @@ public class ValidaLogin extends HttpServlet {
         usuario.setLogin(request.getParameter("login"));
         usuario.setSenha(request.getParameter("senha"));
 
-        if(loginValido.equals(usuario.getLogin()) && senhaValida.equals(usuario.getSenha())) {
+        if(senhaValida.equals(usuario.getSenha()) && Objects.nonNull(usuario.getLogin())) {
             // usamos request.getRequestDispatcher quando vamos redirecionar para um nova pagina e precisamos
             // utilizar os dados em outra página
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/sistema");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/Sistema");
             // dispatcher.forward faz o redirect
             dispatcher.forward(request, response);
             request.getSession().setAttribute("usuario", usuario);
