@@ -1,5 +1,6 @@
-package br.com.impacta.javaweb.servlets.projetojavaweb;
+package br.com.impacta.javaweb.servlets.projetojavaweb.controller;
 
+import br.com.impacta.javaweb.servlets.projetojavaweb.model.Usuario;
 import org.jetbrains.annotations.NotNull;
 
 import javax.servlet.*;
@@ -17,13 +18,14 @@ public class CadastroUsuario extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Usuario usuario = new Usuario();
+        usuario.setNome(request.getParameter("nome"));
+        usuario.setLogin(request.getParameter("login"));
+        usuario.setEmail(request.getParameter("email"));
+        usuario.setSenha(request.getParameter("senha"));
+
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
-
-        String nome = request.getParameter("nome");
-        String login = request.getParameter("login");
-        String senha = request.getParameter("senha");
-        String confirmeSenha = request.getParameter("confirmeSenha");
 
         PrintWriter out = response.getWriter();
         out.println("<html>");
@@ -32,10 +34,8 @@ public class CadastroUsuario extends HttpServlet {
         out.println("<head>");
 
         out.println("<body>");
-        out.println("<h1>" + "Nome: " + nome + "</h1><br>");
-        out.println("<h2>" + "Login: " + login +"</h2><br>");
-        out.println("<h2>" + "Senha: " + senha +"</h2><br>");
-        out.println("<h2>" + "SenhaConfirmada: " + confirmeSenha +"</h2><br>");
+        out.println("<h1>" + "Nome: " + usuario.getNome() + "</h1><br>");
+        out.println("<h2>" + "Login: " + usuario.getLogin() +"</h2><br>");
         out.println("</body></html>");
     }
 }
